@@ -1,7 +1,5 @@
 function HomePage() {
-  return (
-    <div>HomePage</div>
-  )
+  return <img src="../../images/model_3.jpg" className="w-full" />;
 }
 
-export default HomePage
+export default HomePage;

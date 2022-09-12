@@ -1,27 +1,37 @@
 import NavBar from "./Components/NavBar";
+import Footer from "./Components/Footer";
 import CartPage from "./Pages/CartPage";
 import HomePage from "./Pages/HomePage";
 import ProductPage from "./Pages/ProductPage";
-import {render} from "react-dom"
-import { BrowserRouter, Routes, Route } from "react-router-dom"
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 function App() {
-  fetch("https://fakestoreapi.com/products")
-    .then((response) => response.json())
-    .then((json) => console.log(json));
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    fetch("https://fakestoreapi.com/products")
+      .then((response) => response.json())
+      .then((data) => {
+        return setProducts(data);
+      });
+  }, []);
+
+  //console.log(products);
 
   return (
     <>
-      <NavBar/>
       <BrowserRouter>
-      <Routes>
-      <Route path="/home" element={<HomePage />}/>
-      <Route path="/product" element={<ProductPage />}/>
-      <Route path="/cart" element={<CartPage />}/>
-      </Routes>
+        <NavBar />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/products" element={<ProductPage items={products} />} />
+          <Route path="/cart" element={<CartPage />} />
+        </Routes>
       </BrowserRouter>
+      <Footer />
     </>
-  )
+  );
 }
 
 export default App;
