@@ -1,13 +1,19 @@
 import Product from "../Components/Product";
 
-function ProductPage({ items }) {
-  console.log(items);
+function ProductPage({ allProducts, clickToAdd }) {
+  // console.log(allProducts);
 
-  const eachProduct = items.map((ele) => {
-    return <Product item={ele} key={ele.id} />;
+  const eachProduct = allProducts.map((ele) => {
+    return <Product oneProduct={ele} key={ele.id} clickToAdd={clickToAdd} />;
   });
 
-  return <>{eachProduct}</>;
+  return (
+    <div>
+      <div className="grid sm:grid-cols-3 lg:grid-cols-5 gap-3 h-9 p-10">
+        {eachProduct}
+      </div>
+    </div>
+  );
 }
 
 export default ProductPage;
