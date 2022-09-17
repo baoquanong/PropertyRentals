@@ -11,38 +11,52 @@ function App() {
   const [addCart, setAddCart] = useState([]);
 
   useEffect(() => {
-    fetch("https://api.escuelajs.co/api/v1/products")
-      .then((response) => {response.json()
-      })
-      .then((data) => {
-        return setProducts(data);
-      });
-
+    const fetchList = async () => {
+      try {
+        const request = await fetch("https://api.escuelajs.co/api/v1/products");
+        const response = await request.json();
+        const updatedResponse = response.map((pdt) => ({ ...pdt, count: 0 }));
+        setProducts(updatedResponse);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchList();
   }, []);
-  console.log(products);
+  //console.log(products);
 
-  
   //console.log(products);
 
   function handleClick(item) {
-    item.count;
-    console.log("addcart", item);
-    setAddCart((prevState) => {
-      return [...prevState, item];
-    });
+    // setAddCart((prevState) => {
+    //   return [...prevState,item]
+    // })
+    // console.log("addcart", item.title);
+    // console.log (item)
+    // console.log (addCart)
+    // console.log (addCart.includes((obj) => obj.id === item.id))
+
+    if (!addCart.includes((obj) => obj.id === item.id)) {
+      item.count = item.count + 1;
+      setAddCart([...addCart, item]);
+    } else {
+      item.count = item.count + 1;
+      setAddCart([...addCart]);
+    }
   }
-  //console.log("another", addCart);
+
+  console.log("another", addCart);
 
   function handleAddRemove(item) {
     //console.log("addcart", item.id);
     console.log("clicked", item);
   }
 
-    // const cartCount = {};
-    // addCart.forEach( (i) => {
-    //     cartCount[i.count] = (cartCount[i.count] || 0) + 1;
-    // });
-    // console.log(cartCount);
+  // const cartCount = {};
+  // addCart.forEach( (i) => {
+  //     cartCount[i.count] = (cartCount[i.count] || 0) + 1;
+  // });
+  // console.log(cartCount);
 
   //console.log (addCart)
 

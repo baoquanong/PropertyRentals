@@ -1,6 +1,9 @@
 import React from "react";
 
 function Checkout({ cartItems }) {
+  function handleCheckout() {
+    alert(`Please make payment of $${sumPrice}. Ka Ching!`);
+  }
   const eachItemDisplay = cartItems.map((ele) => {
     return (
       <div key={ele.id} className="flex justify-between px-3">
@@ -14,8 +17,6 @@ function Checkout({ cartItems }) {
     return accumulator + object.price;
   }, 0);
 
-
-
   return (
     <div className="card bg-base-100 shadow-md mt-5 ml-5 h-fulljustify-center">
       <div className="text-center font-bold text-xl p-5">Order Summary</div>
@@ -27,7 +28,10 @@ function Checkout({ cartItems }) {
         <div className="mr-10 font-bold ">${sumPrice}</div>
       </div>
       <div className="card-actions justify-center">
-        <button className="btn w-32 bg-stone-400 border-inherit m-5">
+        <button
+          onClick={handleCheckout}
+          className="btn w-32 bg-stone-400 border-inherit m-5"
+        >
           Check Out
         </button>
       </div>
