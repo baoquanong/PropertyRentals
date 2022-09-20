@@ -1,11 +1,11 @@
 import Cart from "../Components/Cart";
 import Checkout from "../Components/Checkout";
 
-function CartPage({ cartItems, addRemoveBtn }) {
-  console.log(cartItems);
+function CartPage({ cartItems, addBtn, removeBtn }) {
+//  console.log(cartItems);
 
   const eachCartItems = cartItems.map((ele) => {
-    return <Cart oneCartItem={ele} key={ele.id} addRemoveBtn={addRemoveBtn}/>;
+    return <Cart oneCartItem={ele} key={ele.id} addBtn={addBtn} removeBtn={removeBtn}/>;
   });
 
   return (

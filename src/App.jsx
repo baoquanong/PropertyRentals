@@ -33,25 +33,32 @@ function App() {
     // })
     // console.log("addcart", item.title);
     // console.log (item)
-    // console.log (addCart)
-    // console.log (addCart.includes((obj) => obj.id === item.id))
-
-    if (!addCart.includes((obj) => obj.id === item.id)) {
-      item.count = item.count + 1;
-      setAddCart([...addCart, item]);
-    } else {
+    //console.log (addCart)
+    //console.log (addCart.filter((obj) => obj.id == item.id))
+    //console.log (item.id)
+    if (addCart.filter((obj) => obj.id === item.id).length > 0) {
       item.count = item.count + 1;
       setAddCart([...addCart]);
+    } else {
+      item.count = item.count + 1;
+      setAddCart([...addCart, item]);
     }
   }
 
   console.log("another", addCart);
 
-  function handleAddRemove(item) {
-    //console.log("addcart", item.id);
-    console.log("clicked", item);
+  function handleRemove(item) {
+    if (item.count === 1) {
+      const itemIndex = addCart.findIndex((i) => i.id === item.id);
+      addCart.splice(itemIndex, 1);
+      setAddCart([...addCart]);
+    } else {
+      item.count = item.count - 1;
+      setAddCart([...addCart]);
+    }
   }
 
+  console.log("hello", addCart);
   // const cartCount = {};
   // addCart.forEach( (i) => {
   //     cartCount[i.count] = (cartCount[i.count] || 0) + 1;
@@ -75,7 +82,11 @@ function App() {
           <Route
             path="/cart"
             element={
-              <CartPage cartItems={addCart} addRemoveBtn={handleAddRemove} />
+              <CartPage
+                cartItems={addCart}
+                addBtn={handleClick}
+                removeBtn={handleRemove}
+              />
             }
           />
         </Routes>
