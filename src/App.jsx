@@ -45,7 +45,7 @@ function App() {
     }
   }
 
-  console.log("another", addCart);
+  //console.log("another", addCart);
 
   function handleRemove(item) {
     if (item.count === 1) {
@@ -58,7 +58,7 @@ function App() {
     }
   }
 
-  console.log("hello", addCart);
+  //console.log("hello", addCart);
   // const cartCount = {};
   // addCart.forEach( (i) => {
   //     cartCount[i.count] = (cartCount[i.count] || 0) + 1;

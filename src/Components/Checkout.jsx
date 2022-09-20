@@ -1,20 +1,21 @@
 import React from "react";
+import Modal from "./Modal";
 
 function Checkout({ cartItems }) {
-  function handleCheckout() {
-    alert(`Please make payment of $${sumPrice}. Ka Ching!`);
-  }
+  //alert(`Please make payment of $${sumPrice}. Ka Ching!`);
+
   const eachItemDisplay = cartItems.map((ele) => {
     return (
-      <div key={ele.id} className="flex justify-between px-3">
-        <span className="ml-10">{ele.title}</span>
+      <div key={ele.id} className="grid grid-cols-3 justify-items-end px-3">
+        <span className="ml-10 justify-self-start ">{ele.title}</span>
+        <span className="mr-10 sm:invisible lg:visible">{ele.count}</span>
         <span className="mr-10">${ele.price}</span>
       </div>
     );
   });
 
   const sumPrice = cartItems.reduce((accumulator, object) => {
-    return accumulator + object.price;
+    return accumulator + object.price * object.count;
   }, 0);
 
   return (
@@ -28,12 +29,13 @@ function Checkout({ cartItems }) {
         <div className="mr-10 font-bold ">${sumPrice}</div>
       </div>
       <div className="card-actions justify-center">
-        <button
-          onClick={handleCheckout}
+        <label
+          htmlFor="my-modal-4"
           className="btn w-32 bg-stone-400 border-inherit m-5"
         >
           Check Out
-        </button>
+        </label>
+        <Modal sumPrice={sumPrice} />
       </div>
     </div>
   );
