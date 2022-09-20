@@ -1,53 +1,43 @@
-# Project 2
+# 来来 E-commerce Store
 
-## Wireframe
+## Project Brief
 
-Wireframe in Figma / Paper -> URL 
-React Router routes
+### MVP - Minimum Viable Product
 
+- Build a web application using ReactJS
+- Use React framework to build your application with at least
+  - 3 components
+  - 4 props
+  - 2 state properties
+  - 2 setState
+  - 2 routes
+- Use 3rd party API
+  - fetch API and display the data for the user. You may use any API of your choosing.
+- Craft a README.md file that explains your app to the world
+- Create wireframes for your app and include it in your repo/readme.
 
+### Timeframe
 
+2 weeks
 
+### Technologies & Tools Used
 
+- React
+- JavaScript
+- Tailwind CSS
+- HTML
+- CSS
+- Git & GitHub
+- Vercel
 
+## Description
 
+Web-based e-commerce platform using platzi fakestore API. User is able to view listed products information, add and remove from cart and adjust product quantities in cart.
 
+## Components Structure
 
-import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
-import Favs from "./pages/Favs";
-import Home from "./pages/Home";
-import Movies from "./pages/Movies";
+![components structure](./images/structure.jpg)
 
-const url =
-  "https://api.themoviedb.org/3/trending/movie/day?api_key=c33b955b56b34e6ac8cf34064ef78bbf";
+## API Used
 
-fetch(url)
-  .then((response) => response.json())
-  .then((data) => console.log(data));
-
-function App() {
-  return (
-    <BrowserRouter>
-      <nav>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>{" "}
-          </li>
-          <li>
-            <Link to="/movies">Movies</Link>{" "}
-          </li>
-          <li>
-            <Link to="/favs">Favs</Link>{" "}
-          </li>
-        </ul>
-      </nav>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/movies" element={<Movies />} />
-        <Route path="/favs" element={<Favs />} />
-      </Routes>
-    </BrowserRouter>
-  );
-}
-
-export default App;
+- [Platzi Fake Store API](https://fakeapi.platzi.com/)
