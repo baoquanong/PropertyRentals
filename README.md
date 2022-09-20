@@ -36,7 +36,7 @@ Web-based e-commerce platform using platzi fakestore API. User is able to view l
 
 ## Components Structure
 
-![components structure](./images/structure.jpg)
+![components structure](./structure.jpg)
 
 ## API Used
 
