@@ -1,4 +1,4 @@
-# 来来 E-commerce Store
+# 来来 e-commerce Store
 
 ## Project Brief
 
