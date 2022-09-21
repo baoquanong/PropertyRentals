@@ -41,3 +41,9 @@ Web-based e-commerce platform using platzi fakestore API. User is able to view l
 ## API Used
 
 - [Platzi Fake Store API](https://fakeapi.platzi.com/)
+
+## Future Developments
+
+- Add a search bar
+- Images enlarges when clicked upon
+- Pagination
