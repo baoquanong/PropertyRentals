@@ -1,5 +1,8 @@
 # 来来 E-commerce Store
 
+[View Project!](https://lailaistore.vercel.app/)
+###
+
 ## Project Brief
 
 ### MVP - Minimum Viable Product
